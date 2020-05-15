@@ -26,7 +26,7 @@ test_script:
   - tlmgr --version
   - pdflatex --version
   - xelatex --version
-  - Rscript -e "tinytex::tlmgr_install(readLines('tools/pkgs-yihui.txt'))"
+  - Rscript -e "tinytex::tlmgr(c('--verify-repo=none', 'install', readLines('tools/pkgs-yihui.txt')))"
   - 7z a TinyTeX.zip %APPDATA%\\TinyTeX
   - travis-tool.sh install_deps
   - R CMD INSTALL .

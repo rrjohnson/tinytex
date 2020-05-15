@@ -25,7 +25,7 @@ powershell -Command "[Net.ServicePointManager]::SecurityProtocol = [Net.Security
 
 rem an automated installation of TeXLive (infrastructure only)
 cd install-tl-*
-@echo | install-tl-windows.bat -no-gui -profile=../tinytex.profile
+@echo | install-tl-windows.bat -no-gui -no-verify-downloads -profile=../tinytex.profile
 
 del TinyTeX\install-tl.log ..\tinytex.profile
 
@@ -48,6 +48,6 @@ for /F %%a in (pkgs-custom.txt) do set "pkgs=!pkgs! %%a"
 del pkgs-custom.txt
 
 call "%APPDATA%\TinyTeX\bin\win32\tlmgr" path add
-call "%APPDATA%\TinyTeX\bin\win32\tlmgr" install latex-bin xetex %pkgs%
+call "%APPDATA%\TinyTeX\bin\win32\tlmgr" --verify-repo=none install latex-bin xetex %pkgs%
 
 pause
