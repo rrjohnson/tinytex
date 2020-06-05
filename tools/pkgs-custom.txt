@@ -58,3 +58,6 @@ xcolor
 xkeyval
 xunicode
 zapfding
+fancyhdr
+libertine
+parskip
